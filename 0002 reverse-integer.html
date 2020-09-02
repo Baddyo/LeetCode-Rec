@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="content__u3I1 question-content__JfgR">
+        <div>
+            <p>Given a 32-bit signed integer, reverse digits of an integer.</p>
+
+            <p><strong>Example 1:</strong></p>
+
+            <pre>
+                <strong>Input:</strong> 123
+                <strong>Output:</strong> 321
+            </pre>
+
+            <p><strong>Example 2:</strong></p>
+
+            <pre>
+                <strong>Input:</strong> -123
+                <strong>Output:</strong> -321
+            </pre>
+
+            <p><strong>Example 3:</strong></p>
+
+            <pre>
+                <strong>Input:</strong> 120
+                <strong>Output:</strong> 21
+            </pre>
+
+            <p>
+                <strong>Note:</strong><br>
+                Assume we are dealing with an environment which could only store integers within the 32-bit signed
+                integer range: [−2<sup>31</sup>,&nbsp; 2<sup>31&nbsp;</sup>− 1]. For the purpose of this problem, assume
+                that your function returns 0 when the reversed integer overflows.
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // let reverse = function (x) {
+        //     let sign = Math.sign(x);
+        //     let str = Math.abs(x) + '';
+        //     let res = sign * Number(str.split('').reverse().join(''));
+        //     return (res > Math.pow(-2, 31) && res < Math.pow(2, 31) - 1) ? res : 0;
+        // };
+
+        let reverse = function (x) {
+            let res = 0;
+            while (x !== 0) {
+                res = 10 * res + x % 10;
+                x = parseInt(x / 10);
+            }
+            return (res > Math.pow(-2, 31) && res < Math.pow(2, 31) - 1) ? res : 0;
+        };
+
+        console.log(reverse(123));
+        console.log(reverse(-123));
+        console.log(reverse(120));
+        console.log(reverse(-120));
+        console.log(reverse(2147483648));
+    </script>
+</body>
+
+</html>
