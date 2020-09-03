@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="content__u3I1 question-content__JfgR">
+        <div>
+            <p>Write a function to find the longest common prefix string amongst an array of strings.</p>
+
+            <p>If there is no common prefix, return an empty string <code>""</code>.</p>
+
+            <p><strong>Example 1:</strong></p>
+
+            <pre>
+                <strong>Input: </strong>["flower","flow","flight"]
+                <strong>Output:</strong> "fl"
+            </pre>
+
+            <p><strong>Example 2:</strong></p>
+
+            <pre>
+                <strong>Input: </strong>["dog","racecar","car"]
+                <strong>Output:</strong> ""
+                <strong>Explanation:</strong> There is no common prefix among the input strings.
+            </pre>
+
+            <p><strong>Note:</strong></p>
+
+            <p>All given inputs are in lowercase letters <code>a-z</code>.</p>
+        </div>
+    </div>
+
+    <script>
+        // var longestCommonPrefix = function (strs) {
+        //     if (strs.length < 2) {
+        //         return strs[0] || '';
+        //     }
+        //     let shortest = strs[0];
+        //     let shortestIndex = 0;
+
+        //     for (let i = 0; i < strs.length; i++) {
+        //         const str = strs[i];
+        //         if (str.length < shortest.length) {
+        //             shortest = str;
+        //             shortestIndex = i;
+        //         }
+        //     }
+        //     strs.splice(shortestIndex, 1);
+        //     strs.unshift(shortest);
+        //     let prefix = '';
+            
+        //     for (let i = 0; i < shortest.length; i++) {
+        //         const char = shortest[i];
+        //         for (let j = 1; j < strs.length; j++) {
+        //             const str = strs[j];
+        //             if (str[i] !== char) {
+        //                 return prefix;
+        //             }
+        //         }
+        //         prefix += char;
+        //     }
+        //     return prefix;
+        // };
+
+        var longestCommonPrefix = function (strs) {
+            if (!strs || !strs.length) {
+                return '';
+            }
+
+            let prefix = strs[0];
+
+            for (let i = 1; i < strs.length; i++) {
+                const str = strs[i];
+                
+                while (str.indexOf(prefix)!==0) {
+                    prefix = prefix.slice(0, prefix.length - 1);
+                }
+            }
+
+            return prefix;
+        }
+
+        console.log(longestCommonPrefix(["flower", "flow", "flight"]));
+        console.log(longestCommonPrefix(["dog", "racecar", "car"]));
+        console.log(longestCommonPrefix(["a"]));
+        console.log(longestCommonPrefix(["a","a"]));
+    </script>
+</body>
+
+</html>
