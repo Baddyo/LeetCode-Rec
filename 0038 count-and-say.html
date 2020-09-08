@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="content__u3I1 question-content__JfgR">
+        <div>
+            <p>The count-and-say sequence is the sequence of integers with the first five terms as following:</p>
+
+            <pre>
+                1.     1
+                2.     11
+                3.     21
+                4.     1211
+                5.     111221
+            </pre>
+
+            <p><code>1</code> is read off as <code>"one 1"</code> or <code>11</code>.<br>
+                <code>11</code> is read off as <code>"two 1s"</code> or <code>21</code>.<br>
+                <code>21</code> is read off as <code>"one 2</code>, then <code>one 1"</code> or <code>1211</code>.</p>
+
+            <p>Given an integer <i>n</i>&nbsp;where 1 ≤ <em>n</em> ≤ 30, generate the <i>n</i><sup>th</sup> term of the
+                count-and-say sequence. You can do so recursively, in other words from the previous member&nbsp;read off
+                the digits, counting the number of digits in groups of the same digit.</p>
+
+            <p>Note: Each term of the sequence of integers will be represented as a string.</p>
+
+            <p>&nbsp;</p>
+
+            <p><b>Example 1:</b></p>
+
+            <pre><b>Input:</b> 1
+        <b>Output:</b> "1"
+        <b>Explanation:</b> This is the base case.
+        </pre>
+
+            <p><b>Example 2:</b></p>
+
+            <pre><b>Input:</b> 4
+        <b>Output:</b> "1211"
+        <b>Explanation:</b> For n = 3 the term was "21" in which we have two groups "2" and "1", "2" can be read as "12" which means frequency = 1 and value = 2, the same way "1" is read as "11", so the answer is the concatenation of "12" and "11" which is "1211".
+        </pre>
+        </div>
+    </div>
+
+    <script>
+        // let countAndSay = function (n) {
+        //     if (n === 1) {
+        //         return '1';
+        //     }
+        //     let res = '1';
+        //     for (let i = 1; i < n; i++) {
+        //         let say = '';
+        //         let count = 0;
+        //         let str = '';
+        //         for (let j = 0; j < res.length; j++) {
+        //             if (say !== res[j]) {
+        //                 if (j !== 0) {
+        //                     str += (count + say);
+        //                 }
+        //                 say = res[j];
+        //                 count = 1;
+        //                 if (i === 1) {
+        //                     str = count + say;
+        //                     break;
+        //                 }
+        //             } else {
+        //                 count++;
+        //             }
+        //             if (j === res.length - 1) {
+        //                 str += (count + say);
+        //             }
+        //         }
+        //         res = str;
+        //     }
+        //     return res;
+        // };
+
+
+        // let countAndSay = function (n) {
+        //     let str = '1';
+        //     let count = 1;
+        //     for (let i = 1; i < n; i++) {
+        //         let arr = str.split('');
+        //         str = '';
+        //         for (let j = 0; j < arr.length; j++) {
+        //             if (arr[j] !== arr[j + 1]) {
+        //                 str += (count + arr[j]);
+        //                 count = 1;
+        //             } else {
+        //                 count++;
+        //             }
+        //         }
+        //     }
+        //     return str;
+        // }
+
+        console.log(countAndSay(1));
+        console.log(countAndSay(2));
+        console.log(countAndSay(3));
+        console.log(countAndSay(4));
+        console.log(countAndSay(5));
+        console.log(countAndSay(6));
+        console.log(countAndSay(7));
+    </script>
+</body>
+
+</html>
