@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="content__u3I1 question-content__JfgR">
+        <div>
+            <p>Given a <strong>non-empty</strong> array of digits&nbsp;representing a non-negative integer,
+                increment&nbsp;one to the integer.</p>
+
+            <p>The digits are stored such that the most significant digit is at the head of the list, and each element
+                in the array contains a single digit.</p>
+
+            <p>You may assume the integer does not contain any leading zero, except the number 0 itself.</p>
+
+            <p>&nbsp;</p>
+            <p><strong>Example 1:</strong></p>
+
+            <pre><strong>Input:</strong> digits = [1,2,3]
+        <strong>Output:</strong> [1,2,4]
+        <strong>Explanation:</strong> The array represents the integer 123.
+        </pre>
+
+            <p><strong>Example 2:</strong></p>
+
+            <pre><strong>Input:</strong> digits = [4,3,2,1]
+        <strong>Output:</strong> [4,3,2,2]
+        <strong>Explanation:</strong> The array represents the integer 4321.
+        </pre>
+
+            <p><strong>Example 3:</strong></p>
+
+            <pre><strong>Input:</strong> digits = [0]
+        <strong>Output:</strong> [1]
+        </pre>
+
+            <p>&nbsp;</p>
+            <p><strong>Constraints:</strong></p>
+
+            <ul>
+                <li><code>1 &lt;= digits.length &lt;= 100</code></li>
+                <li><code>0 &lt;= digits[i] &lt;= 9</code></li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // let plusOne = function (digits) {
+        //     digits[digits.length - 1]++;
+        //     for (let i = digits.length - 1; i >= 0; i--) {
+        //         const x = digits[i];
+        //         if (x < 10) {
+        //             return digits;
+        //         } else {
+        //             digits[i] = x - 10;
+        //             if (i === 0) {
+        //                 digits.unshift(1);
+        //                 return digits;
+        //             } else {
+        //                 digits[i - 1]++;
+        //             }
+        //         }
+        //     }
+        // };
+
+        let plusOne = function (digits) {
+            for (let i = digits.length - 1; i >= 0; i--) {
+                const x = digits[i];
+                if (x < 9) {
+                    digits[i]++;
+                    return digits;
+                }
+                digits[i] = 0;
+            }
+            digits.unshift(1);
+            return digits;
+        };
+
+        console.log(plusOne([1, 2, 3]));
+        console.log(plusOne([4, 3, 2, 1]));
+        console.log(plusOne([0]));
+        console.log(plusOne([8, 9, 9, 9, 9]));
+        console.log(plusOne([6, 1, 4, 5, 3, 9, 0, 1, 9, 5, 1, 8, 6, 7, 0, 5, 5, 4, 3]));
+    </script>
+</body>
+
+</html>
