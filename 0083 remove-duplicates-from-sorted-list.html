@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="content__u3I1 question-content__JfgR">
+        <div>
+            <p>Given a sorted linked list, delete all duplicates such that each element appear only <em>once</em>.</p>
+
+            <p><strong>Example 1:</strong></p>
+
+            <pre><strong>Input:</strong> 1-&gt;1-&gt;2
+        <strong>Output:</strong> 1-&gt;2
+        </pre>
+
+            <p><strong>Example 2:</strong></p>
+
+            <pre><strong>Input:</strong> 1-&gt;1-&gt;2-&gt;3-&gt;3
+        <strong>Output:</strong> 1-&gt;2-&gt;3
+        </pre>
+        </div>
+    </div>
+    <script>
+        let deleteDuplicates = function (head) {
+            let backup = head;
+            while (head.next) {
+                if (head.val === head.next.val) {
+                    head.next = head.next.next || null;
+                } else {
+                    head = head.next;
+                }
+            }
+            return backup;
+        };
+
+        console.log(deleteDuplicates({
+            val: 1,
+            next: {
+                val: 1,
+                next: {
+                    val: 2,
+                    next: null
+                }
+            }
+        }));
+
+        console.log(deleteDuplicates({
+            val: 1,
+            next: {
+                val: 1,
+                next: {
+                    val: 1,
+                    next: {
+                        val: 2,
+                        next: null
+                    }
+                }
+            }
+        }));
+
+        console.log(deleteDuplicates({
+            val: 1,
+            next: {
+                val: 1,
+                next: {
+                    val: 2,
+                    next: {
+                        val: 3,
+                        next: {
+                            val: 3,
+                            next: null
+                        }
+                    }
+                }
+            }
+        }));
+    </script>
+</body>
+
+</html>

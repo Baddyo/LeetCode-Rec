@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="content__u3I1 question-content__JfgR">
+        <div>
+            <p>Implement <code>int sqrt(int x)</code>.</p>
+
+            <p>Compute and return the square root of <em>x</em>, where&nbsp;<em>x</em>&nbsp;is guaranteed to be a
+                non-negative integer.</p>
+
+            <p>Since the return type&nbsp;is an integer, the decimal digits are truncated and only the integer part of
+                the result&nbsp;is returned.</p>
+
+            <p><strong>Example 1:</strong></p>
+
+            <pre><strong>Input:</strong> 4
+        <strong>Output:</strong> 2
+        </pre>
+
+            <p><strong>Example 2:</strong></p>
+
+            <pre><strong>Input:</strong> 8
+        <strong>Output:</strong> 2
+        <strong>Explanation:</strong> The square root of 8 is 2.82842..., and since 
+        &nbsp;            the decimal part is truncated, 2 is returned.
+        </pre>
+        </div>
+    </div>
+
+    <script>
+        // let mySqrt = function (x) {
+        //     if (x === 0 || x === 1) {
+        //         return x;
+        //     }
+        //     for (let i = 0; i < x; i++) {
+        //         if (i * i === x || (i * i < x && (i + 1) * (i + 1) > x)) {
+        //             return i;
+        //         }
+        //     }
+        // };
+
+        let mySqrt = function (x) {
+            let left = 1;
+            let right = Math.floor(x / 2) + 1;
+            let mid = 0;
+            while (left <= right) {
+                mid = Math.floor((left + right) / 2);
+                if (mid * mid === x) {
+                    return mid;
+                }else if (mid * mid > x) {
+                    right = mid - 1;
+                } else {
+                    left = mid + 1;
+                }
+            }
+
+            return right;
+        };
+
+        console.log(mySqrt(0));
+        console.log(mySqrt(1));
+        console.log(mySqrt(4));
+        console.log(mySqrt(8));
+    </script>
+</body>
+
+</html>
